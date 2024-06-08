@@ -4,13 +4,21 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 import Wheel from './components/Wheel';
+import EmailDialog from './components/EmailDialog';
+
+function hasEnteredEmail() {
+  return !!localStorage.getItem('custom-email');
+}
  
 export default  (props) => {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+
+  let email = hasEnteredEmail();
 
   return (
     <>
-    <Wheel />
+    {email && (<Wheel />)}
+    {!email && (<EmailDialog onSubmit={() => setCount(count+1)} />)}
     </>
   )
 }
