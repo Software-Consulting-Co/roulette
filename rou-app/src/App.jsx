@@ -4,7 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 import Wheel from './components/Wheel';
-
+ 
 export default  (props) => {
   const [count, setCount] = useState(0)
 
